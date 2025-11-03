@@ -23,4 +23,29 @@ public class HRCalculatorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> HRCalculator.calculateMaxHR(-1));
     }
+    @Test
+    public void testWorkoutZone_Below() {
+        assertEquals("Below zone", HRCalculator.getWorkoutZone(30, 100));
+    }
+
+    @Test
+    public void testWorkoutZone_FatBurn() {
+        assertEquals("Fat burn", HRCalculator.getWorkoutZone(30, 120));
+    }
+
+    @Test
+    public void testWorkoutZone_Cardio() {
+        assertEquals("Cardio", HRCalculator.getWorkoutZone(30, 140));
+    }
+
+    @Test
+    public void testWorkoutZone_Anaerobic() {
+        assertEquals("Anaerobic", HRCalculator.getWorkoutZone(30, 160));
+    }
+
+    @Test
+    public void testWorkoutZone_RedLine() {
+        assertEquals("Red line", HRCalculator.getWorkoutZone(30, 190));
+    }
+
 }
